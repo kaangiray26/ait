@@ -48,10 +48,10 @@ P2P systems reside on the Layer 7 (Application Layer).
 
 ## Number of messages created in a flooding of a request in Gnutella
 
-```
 * Gnutella 0.4 system
 * N = 11 connections per node
 * T = 4 (Time to live)
 
-Number of messages = $\sum\limits_{i=0}^{T-1} N \times (N-1)^i$
-```
+Number of messages = $\sum\limits_{i=0}^{T-1} N (N-1)^i$
+
+## 
