@@ -1,10 +1,10 @@
 # Advanced Internet Technology
 
-[notes](notes.md)
+## [notes](notes.md)
 
 ### Quizzes
-- [ ] Quiz 1 - P2P and Small World
-- [ ] Quiz 2 - Small World/DHTs/Chord
+- [x] Quiz 1 - P2P and Small World
+- [x] Quiz 2 - Small World/DHTs/Chord
 - [ ] Quiz 3 - i3 and Bitcoin
 - [ ] Quiz 4 - Cloud
 - [ ] Quiz 5 - CPS

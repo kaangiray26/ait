@@ -242,3 +242,79 @@ What are potential benefits of using several hash functions in a single Chord ri
 ## Number of nodes in a DHT
 
 Number of nodes in a DHT can't be unlimited, as any hash function only outputs a limited number of hashes.
+
+# Quiz 3 - i3 and Bitcoin
+
+## Multicast via i3
+
+This is how the triggers can be used to realize multicast via i3.
+
+![](images/quiz_311.png)
+
+## P2P infrastructure for i3
+
+The **DHT** P2P infrastructure is used to operate i3.
+
+## Mobility in i3
+
+Who is allowed to be mobile in i3?
+
+* Sender
+* Receiver
+
+## i3 partners knowledge
+
+In plain i3, communication partners **can not** learn their physical location.
+
+## Bitcoin Transactions
+
+In a blockchain network, when Alice issues a new Bitcoin transaction, **all nodes** receive Alice's submitted transaction.
+
+## Copy of the blockchain
+
+Also, established nodes store a full copy of the whole blockchain to **authenticate transactions**.
+
+## Mined blocks
+
+A mined block (which is valid) **may** become part of the blockchain.
+
+## Maximum number of Bitcoins
+
+The maximum number of Bitcoins is 21 million. The number of new bitcoins created each year is automatically halved over time until bitcoin issuance halts completely with a total of 21 million bitcoins in existence.
+
+## Verifying a transaction
+
+Digital signatures play an essential role in verifying that an attempted payment is authorized.
+
+## Merkle tree
+
+Consider the case where Bitcoin transactions are integers $t_i \in \Z_{17}$, i.e., $0 \le t_i \le 17$ and the Merkle tree uses the hash function $h(x)=6x+4\space mod(11)$.
+
+Compute the Merkle tree root  and give the number of hash operations you performed along the way for the following ordered set of transactions to include in your block.
+
+| $t_1$ | $t_2$ | $t_3$ | $t_4$ | $t_5$ | $t_6$ | $t_7$ | $t_8$ |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| 1     | 9     | 15    | 11    | 8     | 4     | 13    | 14    |
+
+We compute the Merkle tree (sideways) as follows:
+```
+(1)  -> 10 |
+           | (10+3) -> 5 |
+(9)  -> 3  |
+                         | (5+9) -> 0  |
+(15) -> 6  |
+           | (6+4)  -> 9 |
+(11) -> 4  |
+                                       | (0+10) -> [9]
+(8)  -> 8  |
+           | (8+6)  -> 0 |
+(4)  -> 6  |
+                         | (0+1) -> 10 |
+(13) -> 5  |
+           | (5+0)  -> 1 |
+(14) -> 0  |
+```
+
+The Merkle tree root is 9. We performed in total 15 hash operations.
+
+# Quiz 4 - Cloud
