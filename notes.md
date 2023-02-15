@@ -318,3 +318,8 @@ We compute the Merkle tree (sideways) as follows:
 The Merkle tree root is 9. We performed in total 15 hash operations.
 
 # Quiz 4 - Cloud
+
+## Scalability
+
+* Scale-out: `increasing the number of devices and distributing tasks to them called`
+* Scale-up: `replacing devices with more powerful devices`
