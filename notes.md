@@ -56,7 +56,9 @@ P2P systems reside on the Layer 7 (Application Layer).
 * N = 11 connections per node
 * T = 4 (Time to live)
 
-Number of messages = $\sum\limits_{i=0}^{T-1} N (N-1)^i$
+Number of messages:
+
+$$\sum\limits_{i=0}^{T-1} N (N-1)^i$$
 
 ## Watts-Strogatz network
 
@@ -323,3 +325,90 @@ The Merkle tree root is 9. We performed in total 15 hash operations.
 
 * Scale-out: `increasing the number of devices and distributing tasks to them called`
 * Scale-up: `replacing devices with more powerful devices`
+
+## Cassandra
+
+What logical structure is used by Cassandra to decide where data is stored?
+
+* DHT
+
+## Distributed System Properties
+
+In a distributed system you can satisfy at most 2 out of the following 3 properties:
+
+* Consistency
+* Availability
+* Partition-tolerance
+
+Cassandra is a distributed system.
+
+Cassandra's architecture does not provide consistency.
+
+## Cassandra's front-end
+
+Why are multiple replicas fetched by Cassandra's front-end node?
+
+* used to guarantee consistent results, since different versions of an item might exist
+
+## Bloomfilter key insertion
+
+You are given a Bloomfilter that consists of $m=11$ memory bits and three hash functions $f_1$, $f_2$ and $f_3$
+
+defined as below:
+* $f_1(x)=x\space mod(m)$
+* $f_2(x)=(17⋅x)\space mod(m)$
+* $f_3(x)=(23⋅x)\space mod(m)$
+
+where x is a given key. Assume that all m bits of the Bloomfilter are initially set to 0 and the bits are numbered from right to left.
+
+Show the Bloomfilter bits following the insertion of the keys 9 and 42.
+
+Calculation:
+* $f_1(9) = 9$
+* $f_2(9) = 10$
+* $f_3(9) = 9$
+* $f_1(42) = 9$
+* $f_2(42) = 10$
+* $f_3(42) = 9$
+
+Bloomfilter bits:
+
+| 10  | 9   | 8   | 7   | 6   | 5   | 4   | 3   | 2   | 1   | 0   |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1   | 1   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   |
+
+## Speedup through parallelization
+
+Suppose that we parallelize a program to run on $n$ processors and only a portion $p$ of the program can be parallelized.
+
+We can compute the speedup S as follows:
+
+$$S=\frac{1}{(1-p)+\frac{p}{n}}$$
+
+## Amdahl's Law
+
+Amdahl‘s law only gives an upper bound and the speedup is not always achievable.
+
+## MapReduce
+
+MapReduce is a programming model for processing and generating large data sets.
+
+* Chunks are processed in isolation by tasks called Mappers
+  * Implementing map function
+* The intermediate outputs of the Mappers are further processed by the Reducers
+  * Implementing reduce function
+* Assigning intermediate outputs to Reducers is done by partitioner
+  * Consistency: records with the same intermediate key must end up at the same Reducer
+* Reducers produce the final outputs
+
+![](images/quiz_481.png)
+
+* All records with the same key are processed by the same reducer.
+
+## Speculative execution
+
+What is speculative execution used for?
+
+to deal with noticeably slow tasks
+
+# Quiz 5 - CPS
